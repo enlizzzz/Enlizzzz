@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commission</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* Page Container */
+        .container {
+            text-align: center;
+            padding-top: 20px;
+        }
+
+        /* Top Banner */
+        .top-banner {
+            background-color: #000000;
+            color: white;
+            text-align: center;
+            padding: 50px 0;
+            font-size: 36px;
+        }
+
+        /* Buttons Below the Banner */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .button-container a {
+            text-decoration: none;
+            background-color: #323232;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+
+        .button-container a:hover {
+            background-color: #45a049;
+        }
+
+        /* Back to Home */
+        .back-home {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .back-home a {
+            font-size: 20px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .back-home a:hover {
+            text-decoration: underline;
+        }
+
+        /* Emoji Button Centered */
+        .emoji-button-container {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .button {
+            width: 60px;
+            height: 60px;
+            gap: 20px;
+            background-color: #000000;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            margin: auto;
+        }
+
+        .emoji {
+            position: absolute;
+            font-size: 2rem;
+            animation: pop 1s ease-out forwards;
+        }
+
+        @keyframes pop {
+            0% {
+                transform: translateY(0) scale(0.5);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-50px) scale(1.2);
+            }
+            100% {
+                transform: translateY(-80px) scale(1);
+                opacity: 0;
+            }
+        
+        }
+        .video-container {
+    display: flex;
+    flex-wrap: wrap; /* Makes sure videos move to the next row if needed */
+    justify-content: center; /* Centers videos in the row */
+    gap: 10px; /* Adds space between videos */
+    padding: 20px;
+}
+
+.video-item {
+    flex: 0 1 auto; /* Prevents videos from stretching */
+}
+
+video {
+    width: 400px; /* Set small fixed width */
+    height: 220px; /* Set small fixed height */
+    border-radius: 8px; /* Optional: Rounded corners */
+    object-fit: cover; /* Ensures videos stay nicely cropped */
+}
+body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+       
+          /* Wrap everything for better alignment */
+        .gallery-wrapper {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        /* Header with two images */
+        .header-container {
+            display: flex;
+            justify-content: center; /* Center images horizontally */
+            gap: 15px; /* Space between images */
+            margin-bottom: 20px; /* Space between header and gallery */
+        }
+
+        .header-container img {
+            width: 48%; /* Adjust width so they fit nicely */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Gallery Images */
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap; /* Allows images to wrap properly */
+            gap: 15px;
+            justify-content: center; /* Align items properly */
+        }
+
+        .gallery-container img {
+            width: calc(33.33% - 10px); /* Make images take 3 per row */
+            max-width: 250px; /* Prevents them from being too large */
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-container img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsive: 2 images per row on smaller screens */
+        @media (max-width: 768px) {
+            .gallery-container img {
+                width: calc(50% - 10px);
+            }
+        }
+
+        /* Responsive: 1 image per row on very small screens */
+        @media (max-width: 480px) {
+            .gallery-container img {
+                width: 100%;
+            }    
+            
+        }
+       
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        /* Page Container */
+        .container {
+            padding-top: 20px;
+        }
+
+        /* Top Banner */
+        .top-banner {
+            background-color: #000000;
+            color: white;
+            padding: 50px 0;
+            font-size: 36px;
+        }
+
+        /* Category Box */
+        .category-box {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            max-width: 500px;
+            margin: 20px auto;
+            text-align: center;
+            display: none; /* Hide by default */
+        }
+
+        /* Buttons Inside the Category Box */
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .button-container a {
+            text-decoration: none;
+            background-color: #323232;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .button-container a:hover {
+            background-color: #45a049;
+        }
+
+        /* Toggle Button */
+        .toggle-button {
+            background-color: #000000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .toggle-button:hover {
+            background-color: #333333;
+        } 
+
+
+        .background-gallery {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    z-index: -1;
+    filter: blur(10px) brightness(50%);
+}
+
+.background-gallery img {
+    flex: 1 1 20%; /* Makes images fit nicely in a grid */
+    width: calc(100% / 5); /* Divide evenly */
+    height: auto;
+    object-fit: cover;
+    opacity: 0.5; /* Soft fade effect */
+    transition: opacity 0.5s ease-in-out;
+}
+
+.background-gallery img:hover {
+    opacity: 0.8; /* Slight glow effect on hover */
+}
+
+
+
+.bio-section {
+    position: relative; /* Change from absolute to relative */
+  
+    margin-bottom: 50px; /* Push the next section down */
+    background: rgba(255, 255, 255, 0.7);
+    color: #000;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    padding: 20px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 700px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+
+.bio-section {
+    position: center; /* Change from absolute to relative */
+    text-align: center;
+   margin: 60px auto;
+}
+
+
+
+.category-box {
+    position: center; /* Change from absolute to relative */
+ 
+}
+
+img {
+  width: 1500px; /* Adjust as needed */
+  height: auto; /* Keeps aspect ratio */
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Top Banner -->
+        <div class="top-banner">
+           Commission
+        </div>
+
+<!-- Back to Home Link -->
+<div class="back-home">
+    <h5><a href="/EnQi Portfolio Homepage.html">✦────────────────────────•┈๑⋅⋯Home page⋯⋅๑┈•────────────────────────✦</a></h5>
+
+    <!-- Buttons Below the Banner -->
+    <div class="button-container">
+        <a href="https://forms.gle/naJ9Co2A72HW71FdA">✦ Commission Form ✦</a>
+        
+    </div>
+
+    <script>
+        function toggleCategory() {
+            var box = document.getElementById("categoryBox");
+            if (box.style.display === "none" || box.style.display === "") {
+                box.style.display = "block";
+            } else {
+                box.style.display = "none";
+            }
+        }
+    </script>
+
+        
+
+        <!-- Emoji Button -->
+        <div class="emoji-button-container">
+            <div class="button" onclick="popEmoji()">✨</div>
+        </div>
+
+
+        
+
+        <script>
+            document.addEventListener('contextmenu', function(event) {
+               event.preventDefault();  // Disable right-click
+               alert('Right-click is disabled on this page.');
+            });
+         </script>
+         <script>
+            document.getElementById('no-right-click').addEventListener('contextmenu', function(event) {
+               event.preventDefault();  // Disable right-click on specific element
+               alert('Right-click is disabled on this image!');
+            });
+         </script>
+         
+         <src="your-image.jpg" alt="No right-click">
+
+
+
+    <script>
+        function popEmoji() {
+            const emojiList = ['⋆˚࿔', '⟡', '✨', '𖤐', '｡𖦹°‧', '☆', '✦'];
+            const emoji = document.createElement('span');
+            emoji.classList.add('emoji');
+            emoji.innerText = emojiList[Math.floor(Math.random() * emojiList.length)];
+
+            const button = document.querySelector('.button');
+            const rect = button.getBoundingClientRect();
+            emoji.style.left = `${rect.left + rect.width / 2}px`;
+            emoji.style.top = `${rect.top}px`;
+
+            document.body.appendChild(emoji);
+
+            setTimeout(() => {
+                emoji.remove();
+            }, 1000);
+        }
+    </script>
+
+         <!-- Buttons Below the Banner -->
+         <div class="button-container">
+            <a href="../EnQi 3D.Modeling Portfolio/3D Modeling.html">3D Modeling</a>
+            <a href="../EnQi Concept Art Portfolio/Concept Art.html">Concept Art</a>
+            <a href="../EnQi 3D Animation Portfolio/3D Animation.html">3D Animation</a>
+            <a href="../EnQi illustration Portfolio/illustration.html ">Illustration</a>
+            <a href="../EnQi 2D Animation Portfolio/2D Animation.html">2D Animation</a>
+        </div>
+
+
+    <div class="bio-section">
+        <p>Welcome to my Commission page! Challenge me ! Commission more art from me so I can build a better-looking portfolio. 
+            And I appreciate your goodwill and time well spent.
+            <header>
+        Check out the commission samples below—this is what you can expect
+        <div>
+        <h4> Good at  <h4>   ദ്ദി(˵ •̀ ᴗ - ˵ ) ✧
+</br>  ✦ Semi realistic 
+</br> ✦ Realistic 
+</br> ✦ Colouring 
+</br>✦ Stylized art 
+</br>  ✦ Cute animals 
+        </p>
+    </div>
+
+  
+
+</div>
+
+
+</div>
+
+
+
+
+<p style="font-weight: bold; font-size: 35px; ">-ˋˏ ༻❁✿❀༺ ˎˊ-</br>────────────────────────  Commission Samples  ────────────────────────</p> 
+</div>
+
+<header>
+    <p style="font-size: 35px; color: rgb(241, 241, 241); margin-bottom: 5px;">✦────────────────────────•┈๑⋅⋯Semi realistic⋯⋅๑┈•────────────────────────✦</p>
+    <div class="img">
+       <img src="images/semi realism.jpg" alt="Image 1">
+
+
+
+<p style="font-size: 35px; color: rgb(241, 241, 241); margin-bottom: 5px;">✦────────────────────────•┈๑⋅⋯Stylized Art⋯⋅๑┈•────────────────────────✦</p>
+    <div class="img">
+       <img src="images/styllize.jpg" alt="Image 1">
+       <header>
+
+<p style="font-size: 35px; color: rgb(241, 241, 241); margin-bottom: 5px;">✦────────────────────────•┈๑⋅⋯Anime / Chibi⋯⋅๑┈•────────────────────────✦</p>
+<div class="img">
+   <img src="images/frieren.jpg" alt="Image 1">
+   <img src="images/vex.jpg" alt="Image 1">
+</div>
+
+</div> 
+<p style="font-size: 35px; color: rgb(241, 241, 241); margin-bottom: 5px;">✦────────────────────•┈๑⋅⋯Painterly Surrealism⋯⋅๑┈•──────────────────────✦</p>
+<div class="img">
+   <img src="images/mouse 2.jpg" alt="Image 1">
+   <img src="images/mouse.jpg" alt="Image 1">
+
+</div> 
+   
+    
+       
+      
+
+
+
+
+
+</div>
+    <header><header>
+
+    <div class="back-home">
+
+   
+</div>
+
+
+    <h2></h2>
+    
+    <div class="background-gallery">
+        <img src="images/Potraits.jpg" alt="Image 1">
+        
+
+            <div>
+
+   
+ <!-- Back to Home Link -->
+ 
+
+
+</body>
+</html>
