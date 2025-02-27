@@ -154,43 +154,20 @@ body {
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        /* Gallery Images */
         .gallery-container {
-            display: flex;
-            flex-wrap: wrap; /* Allows images to wrap properly */
-            gap: 15px;
-            justify-content: center; /* Align items properly */
-        }
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    min-height: 100vh; /* Ensure it takes up the viewport height */
+    padding: 20px; /* Space around the image */
+}
 
-        .gallery-container img {
-            width: calc(33.33% - 10px); /* Make images take 3 per row */
-            max-width: 250px; /* Prevents them from being too large */
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .gallery-container img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Responsive: 2 images per row on smaller screens */
-        @media (max-width: 768px) {
-            .gallery-container img {
-                width: calc(50% - 10px);
-            }
-        }
-
-        /* Responsive: 1 image per row on very small screens */
-        @media (max-width: 480px) {
-            .gallery-container img {
-                width: 100%;
-            }    
-            
-        }
-       
+.gallery-container img {
+    max-width: 35%; /* Make it smaller */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Optional: rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: adds depth */
+}
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -347,6 +324,10 @@ img {
     <div class="button-container">
         <a href="https://forms.gle/naJ9Co2A72HW71FdA">✦ Commission Form ✦</a>
         
+    </div>
+
+    <div class="gallery-container">
+        <img src="images/Comission poster.png" alt="Image 2">
     </div>
 
     <script>
